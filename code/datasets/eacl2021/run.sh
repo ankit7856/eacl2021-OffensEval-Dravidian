@@ -7,16 +7,16 @@
 #CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode dev_tamil --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/combined --eval-ckpt-path ../checkpoints/eacl2021/offeval/combined/xlm-roberta-base/text_raw/
 #CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode dev_malayalam --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/combined --eval-ckpt-path ../checkpoints/eacl2021/offeval/combined/xlm-roberta-base/text_raw/
 
-rm -r ../../checkpoints/eacl2021
-cd ../../scripts
-#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-charlstm-lstm --text-type "" --dataset-name eacl2021/offeval/kannada --max-epochs 10 --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/kannada/xlm-roberta-base/
-CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-fasttext-lstm --text-type "trt" --dataset-name eacl2021/offeval/kannada --max-epochs 10 --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/kannada/xlm-roberta-base/
-rm -r ../checkpoints/eacl2021
-CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-charlstm-lstm --text-type "" --dataset-name eacl2021/offeval/tamil --max-epochs 10 --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/tamil/xlm-roberta-base/
-CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-fasttext-lstm --text-type "trt" --dataset-name eacl2021/offeval/tamil --max-epochs 10 --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/tamil/xlm-roberta-base/
-rm -r ../checkpoints/eacl2021
-CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-charlstm-lstm --text-type "" --dataset-name eacl2021/offeval/malayalam --max-epochs 10 --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/malayalam/xlm-roberta-base/
-CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-fasttext-lstm --text-type "trt" --dataset-name eacl2021/offeval/malayalam --max-epochs 10 --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/malayalam/xlm-roberta-base/
+#rm -r ../../checkpoints/eacl2021
+#cd ../../scripts
+##CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-charlstm-lstm --text-type "" --dataset-name eacl2021/offeval/kannada --max-epochs 10 --custom-pretrained-path ../../pretraining/offeval/kannada/xlm-roberta-base/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-fasttext-lstm --text-type "trt" --dataset-name eacl2021/offeval/kannada --max-epochs 10 --custom-pretrained-path ../../pretraining/offeval/kannada/xlm-roberta-base/
+#rm -r ../checkpoints/eacl2021
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-charlstm-lstm --text-type "" --dataset-name eacl2021/offeval/tamil --max-epochs 10 --custom-pretrained-path ../../pretraining/offeval/tamil/xlm-roberta-base/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-fasttext-lstm --text-type "trt" --dataset-name eacl2021/offeval/tamil --max-epochs 10 --custom-pretrained-path ../../pretraining/offeval/tamil/xlm-roberta-base/
+#rm -r ../checkpoints/eacl2021
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-charlstm-lstm --text-type "" --dataset-name eacl2021/offeval/malayalam --max-epochs 10 --custom-pretrained-path ../../pretraining/offeval/malayalam/xlm-roberta-base/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-fasttext-lstm --text-type "trt" --dataset-name eacl2021/offeval/malayalam --max-epochs 10 --custom-pretrained-path ../../pretraining/offeval/malayalam/xlm-roberta-base/
 
 
 #rm -r ../../checkpoints/eacl2021
@@ -39,15 +39,15 @@ CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert
 
 #rm -r ../../checkpoints/eacl2021
 #cd ../../scripts
-#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/kannada --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/kannada/xlm-roberta-base/
-#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/tamil  --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/tamil/xlm-roberta-base/
-#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/malayalam  --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/malayalam/xlm-roberta-base/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/kannada --custom-pretrained-path ../../pretraining/offeval/kannada/xlm-roberta-base/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/tamil  --custom-pretrained-path ../../pretraining/offeval/tamil/xlm-roberta-base/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name xlm-roberta-base --text-type "" --dataset-name eacl2021/offeval/malayalam  --custom-pretrained-path ../../pretraining/offeval/malayalam/xlm-roberta-base/
 
 #rm -r ../../checkpoints/eacl2021
 #cd ../../scripts
-#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-base-multilingual-cased --text-type "" --dataset-name eacl2021/offeval/kannada --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/kannada/bert-base-multilingual-cased/
-#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-base-multilingual-cased --text-type "" --dataset-name eacl2021/offeval/tamil  --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/tamil/bert-base-multilingual-cased/
-#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-base-multilingual-cased --text-type "" --dataset-name eacl2021/offeval/malayalam  --custom-pretrained-path ../datasets/eacl2021/pretraining/offeval/malayalam/bert-base-multilingual-cased/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-base-multilingual-cased --text-type "" --dataset-name eacl2021/offeval/kannada --custom-pretrained-path ../../pretraining/offeval/kannada/bert-base-multilingual-cased/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-base-multilingual-cased --text-type "" --dataset-name eacl2021/offeval/tamil  --custom-pretrained-path ../../pretraining/offeval/tamil/bert-base-multilingual-cased/
+#CUDA_VISIBLE_DEVICES=0 python run_eacl2021.py --mode train_dev --model-name bert-base-multilingual-cased --text-type "" --dataset-name eacl2021/offeval/malayalam  --custom-pretrained-path ../../pretraining/offeval/malayalam/bert-base-multilingual-cased/
 
 #rm -r ../../checkpoints/eacl2021
 #cd pretraining

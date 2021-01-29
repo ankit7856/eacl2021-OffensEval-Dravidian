@@ -60,17 +60,20 @@ if __name__ == "__main__":
     download_file_from_google_drive('15auwrFAlq52JJ61u7eSfnhT9rZtI5sjk', os.path.join(save_path, "train.tsv"))
     download_file_from_google_drive('1Jme-Oftjm7OgfMNLKQs1mO_cnsQmznRI', os.path.join(save_path, "dev.tsv"))
     download_file_from_google_drive('17o-spkU5JnI_18qDJXO-F_DoIG9Zzv9q', os.path.join(save_path, "test.tsv"))
+    download_file_from_google_drive('10RHrqXvIKMdnvN_tVJa_FAm41zaeC8WN', os.path.join(save_path, "tamil_offensive_full_test_with_labels.csv"))
 
     save_path = os.path.join(root_save_path, "malayalam")
     create_paths(save_path)
     download_file_from_google_drive('13JCCr-IjZK7uhbLXeufptr_AxvsKinVl', os.path.join(save_path, "train.tsv"))
     download_file_from_google_drive('1J0msLpLoM6gmXkjC6DFeQ8CG_rrLvjnM', os.path.join(save_path, "dev.tsv"))
     download_file_from_google_drive('1waRFe4yTG8TMkMruICaavd9JH0xiO_rb', os.path.join(save_path, "test.tsv"))
+    download_file_from_google_drive('1zx1wCC9A-Pp80mzbqixb52WlWQQ7ATyJ', os.path.join(save_path, "mal_full_offensive_test_with_labels.csv"))
 
     save_path = os.path.join(root_save_path, "kannada")
     create_paths(save_path)
     download_file_from_google_drive('1BFYF05rx-DK9Eb5hgoIgd6EcB8zOI-zu', os.path.join(save_path, "train.tsv"))
     download_file_from_google_drive('1V077dMQvscqpUmcWTcFHqRa_vTy-bQ4H', os.path.join(save_path, "dev.tsv"))
     download_file_from_google_drive('14DQvnNZCXSgmiZxJqGtPYFdRqBH7TOSr', os.path.join(save_path, "test.tsv"))
+    download_file_from_google_drive('1Px2CvIkLP_xaNhz_fCofW-7GGBCnSYsa', os.path.join(save_path, "kannada_offensive_test_with_labels.csv"))
 
     print("complete")
