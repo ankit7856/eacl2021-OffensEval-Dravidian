@@ -1033,42 +1033,42 @@ if __name__ == "__main__":
                     opfile.write(f"{label_vocab.idx2token[y]}\n")
             opfile.close()
 
-            # if targets is not None and len(targets) > 0:
-            #     print(f"\n(NEW!) saving errors files in the folder: {args.save_errors_path}")
-            #     # report
-            #     report = classification_report(test_true, test_preds, digits=4,
-            #                                    target_names=[label_vocab.idx2token[idx]
-            #                                                  for idx in range(0, label_vocab.n_all_tokens)])
-            #     print("\n"+report)
-            #     opfile = open(os.path.join(args.save_errors_path, "report.txt"), "w")
-            #     opfile.write(report+"\n")
-            #     opfile.close()
-            #     # errors
-            #     opfile = jsonlines.open(os.path.join(args.save_errors_path, "errors.jsonl"), "w")
-            #     for i, (x, y, z) in enumerate(zip(test_exs, test_preds, test_true)):
-            #         if y != z:
-            #             dt = x._asdict()
-            #             dt.update({"prediction": label_vocab.idx2token[y]})
-            #             opfile.write(dt)
-            #     opfile.close()
-            #     for idx_i in label_vocab.idx2token:
-            #         for idx_j in label_vocab.idx2token:
-            #             opfile = jsonlines.open(os.path.join(args.save_errors_path,
-            #                                                  f"errors_pred-{idx_i}_target-{idx_j}.jsonl"), "w")
-            #             temp_test_exs = [x for x, y, z in zip(test_exs, test_preds, test_true)
-            #                                       if (y == idx_i and z == idx_j)]
-            #             for x in temp_test_exs:
-            #                 dt = x._asdict()
-            #                 dt.update({"prediction": label_vocab.idx2token[idx_i]})
-            #                 opfile.write(dt)
-            #             opfile.close()
-            #     # confusion matrix
-            #     cm = confusion_matrix(y_true=test_true, y_pred=test_preds, labels=list(set(test_true)))
-            #     disp = ConfusionMatrixDisplay(confusion_matrix=cm,
-            #                                   display_labels=[label_vocab.idx2token[ii] for ii in list(set(test_true))])
-            #     disp = disp.plot(values_format="d")
-            #     plt.savefig(os.path.join(args.save_errors_path, "confusion_matrix.png"))
-            #     # plt.show()
+            if targets is not None and len(targets) > 0:
+                print(f"\n(NEW!) saving errors files in the folder: {args.save_errors_path}")
+                # report
+                report = classification_report(test_true, test_preds, digits=4,
+                                               target_names=[label_vocab.idx2token[idx]
+                                                             for idx in range(0, label_vocab.n_all_tokens)])
+                print("\n"+report)
+                opfile = open(os.path.join(args.save_errors_path, "report.txt"), "w")
+                opfile.write(report+"\n")
+                opfile.close()
+                # errors
+                opfile = jsonlines.open(os.path.join(args.save_errors_path, "errors.jsonl"), "w")
+                for i, (x, y, z) in enumerate(zip(test_exs, test_preds, test_true)):
+                    if y != z:
+                        dt = x._asdict()
+                        dt.update({"prediction": label_vocab.idx2token[y]})
+                        opfile.write(dt)
+                opfile.close()
+                for idx_i in label_vocab.idx2token:
+                    for idx_j in label_vocab.idx2token:
+                        opfile = jsonlines.open(os.path.join(args.save_errors_path,
+                                                             f"errors_pred-{idx_i}_target-{idx_j}.jsonl"), "w")
+                        temp_test_exs = [x for x, y, z in zip(test_exs, test_preds, test_true)
+                                                  if (y == idx_i and z == idx_j)]
+                        for x in temp_test_exs:
+                            dt = x._asdict()
+                            dt.update({"prediction": label_vocab.idx2token[idx_i]})
+                            opfile.write(dt)
+                        opfile.close()
+                # confusion matrix
+                cm = confusion_matrix(y_true=test_true, y_pred=test_preds, labels=list(set(test_true)))
+                disp = ConfusionMatrixDisplay(confusion_matrix=cm,
+                                              display_labels=[label_vocab.idx2token[ii] for ii in list(set(test_true))])
+                disp = disp.plot(values_format="d")
+                plt.savefig(os.path.join(args.save_errors_path, "confusion_matrix.png"))
+                # plt.show()
 
 
     """ interactive """
