@@ -236,6 +236,12 @@ if __name__ == "__main__":
         default=None,
         help="batch size for compiling batches when training models",
     )
+    parser.add_argument(
+        "--balance-classes",
+        help="Triggers multitask learning of both language identification and sentiment analysis",
+        action='store_true'
+        # if you pass --balance-classes in cmd, this will be True and clas are weighted during training
+    )
     args = parser.parse_args()
 
 
@@ -374,6 +380,28 @@ if __name__ == "__main__":
     # dev_examples = dev_examples[:6]
     # test_examples = test_examples[:10]
 
+    """ class weights """
+    if args.balance_classes and "train" in args.mode:
+        # 1.
+        # following startegy same as ```from sklearn.utils import class_weight```
+        n_classes = len(label_vocab.token_freq)
+        n_samples = float(sum([i[1] for i in label_vocab.token_freq]))
+        _class_weights = {}
+        for tpl in label_vocab.token_freq:
+            _class_weights.update({tpl[0]: n_samples/(n_classes*tpl[1])})
+        # 2.
+        # re-weighing to keep the sum of classw eights same as in case where no class weights are provided
+        #   due to torch.nn.cross_entropy default to assing a weight of 1.0 to each class
+        sum_class_weights = sum([*_class_weights.values()])
+        for k in _class_weights:
+            _class_weights[k] *= n_classes/sum_class_weights
+        class_weights = [0 for _ in _class_weights]
+        for k, v in _class_weights.items():
+            class_weights[label_vocab.token2idx[k]] = v
+        print(f"class_weights modified to {_class_weights}")
+    else:
+        class_weights = None
+
 
     """ define and initialize model """
     model = None
@@ -441,7 +469,7 @@ if __name__ == "__main__":
                                  finetune_bert=True)
         else:
             model = WholeWordBertMLP(out_dim=label_vocab.n_all_tokens, pretrained_path=pretrained_path,
-                                     finetune_bert=True)
+                                     finetune_bert=True, class_weights=class_weights)
     elif args.model_name == "fasttext-vanilla":
         # load pretrained
         fst_english = FastTextVecs("en")

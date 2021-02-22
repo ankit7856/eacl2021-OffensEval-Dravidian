@@ -1,10 +1,14 @@
 import sys
 import io
 import torch
-import fasttext
 import numpy as np
 from typing import List
 from torch.nn.utils.rnn import pad_sequence
+try:
+    import fasttext
+except ImportError:
+    print("install fasttext if you plan to use models based on it")
+
 
 
 def get_model_nparams(model):

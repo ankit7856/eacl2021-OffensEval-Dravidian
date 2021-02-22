@@ -1,9 +1,9 @@
 ## Datasets
 - Download official data, convert to jsonl format (because that's the format the code base expects!)
 ```
-bash make_data.sh
+bash run.sh
 ```
-- Transliterate to romanized (!! alo included in make_data.sh above !!)
+- Transliterate to romanized (!! alo included in run.sh above !!)
 ```
 python transliterate.py --base-path ./offeval/kannada/ --src-lang kan --tgt-lang eng --files train.jsonl dev.jsonl test.jsonl
 python transliterate.py --base-path ./offeval/tamil/ --src-lang kan --tgt-lang eng --files train.jsonl dev.jsonl test.jsonl

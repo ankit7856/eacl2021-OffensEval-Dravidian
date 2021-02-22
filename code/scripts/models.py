@@ -95,7 +95,7 @@ def _custom_bert_tokenize(batch_sentences, bert_tokenizer, max_len=512, batch_la
     outputs:
         batch_attention_masks, batch_input_ids, batch_token_type_ids
             2d tensors of shape (bs,max_len)
-        batch_splits: List[List[Int]]
+        batch_splits: List[List[int]]
             specifies number of sub-tokens for each word in each sentence after sub-word bert tokenization
     """
 
@@ -964,6 +964,7 @@ class WholeWordBertMLP(nn.Module):
                  out_dim: int,
                  pretrained_path: str,
                  finetune_bert: bool,
+                 class_weights: List[int] = None
                  ):
         super(WholeWordBertMLP, self).__init__()
 
@@ -988,7 +989,11 @@ class WholeWordBertMLP(nn.Module):
         self.linear = nn.Linear(self.bertmodule_outdim, out_dim)
 
         """ learning criterion """
-        self.criterion = nn.CrossEntropyLoss(reduction='mean')
+        if class_weights:
+            assert len(class_weights) == out_dim, \
+                print(f"class weights must be list of size {out_dim} but found {len(class_weights)}")
+            class_weights = torch.tensor(class_weights)
+        self.criterion = nn.CrossEntropyLoss(reduction='mean', weight=class_weights)
 
     @property
     def device(self) -> torch.device:
